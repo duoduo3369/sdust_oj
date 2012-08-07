@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}提交{% endblock %}
+{% block content %}
+            <div style="width:800px;MARGIN-RIGHT:auto;MARGIN-LEFT:auto;">
+                <form id="form" name="submit" action="" enctype="multipart/form-data" method="POST">
+                    {% csrf_token%}
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>题目：</td>
+                                <td><b>{{ prob.id }}</b> - <a href="{% url problem_detail prob.id %}">{{ prob.description.title }}</a></td>
+                            </tr>
+                            <tr>
+                                <td>代码类型：</td>
+                                <td>
+                                    {{ form.code_type }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>zip代码：</td>
+                                <td>
+                                    {{ form.code_file }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <textarea name="code_text" cols="100" rows="25" id="source"></textarea>
+                    <br>
+                    <input style="float:left" class="bnt1" type="submit" id="submit" value="提交">
+                    <input style="margin-left:20px;float:left" class="bnt1" type="button" value="返回" onclick="history.go(-1)">
+                </form>
+           </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+               <div>
+                    <h2>Runtime Config List</h2>
+                    <a href="{% url runtime_config_add meta.id %}">Add</a>
+                    <table>
+                        <tr>
+                            <td>编号</td>
+                            <td>代码类型</td>
+                            <td>内存限制（KB）</td>
+                            <td>时间限制（ms）</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    {% for run_c in runtime_configs %}
+                        <tr>
+                            <td>{{ run_c.id }}</td>
+                            <td>{{ run_c.get_code_type }}</td>
+                            <td>{{ run_c.memory }}</td>
+                            <td>{{ run_c.time }}
+                            <td><a href="{% url runtime_config_edit meta.id run_c.id %}">编辑</a></td>
+                            <td><a href="{% url runtime_config_delete meta.id run_c.id %}">删除</a></td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+               </div>

@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %}{{ prob.id }}-{{ prob.description.title }}{% endblock %}
+{% block content %}
+            <div>
+            {% with prob.description as desc %}
+            
+                <div class="ptt">
+                    {{ desc.title }}
+                </div>
+                
+                <div class="plm">
+                    <table align="center">
+                        <tbody>
+                        {% for runtime_config in prob.runtime_configs %}
+                            <tr>
+                                <td><b>代码类型：</b> {{ runtime_config.get_code_type }} </td>
+                                <td width="10px"></td>
+                                <td><b>时间限制：</b> {{ runtime_config.time }}MS </td>
+                                <td width="10px"></td>
+                                <td><b>内存限制：</b> {{ runtime_config.memory }}KB </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+               
+                <p align="center">
+                    <font size="3" color="#333399">
+                        [<a href="{% url submit prob.id %}" class="login">提交</a>]&nbsp;&nbsp;
+                        [<a href="javascript:history.go(-1)">返回</a>]&nbsp;&nbsp;
+                        [<a href="problem/status.action?id=27291">状态</a>]&nbsp;&nbsp; 
+                    </font>
+                </p>
+               
+                <div class="hiddable" id="vj_description" style="display: block; ">
+                    <p class="pst">
+                        描述
+                    </p>
+                    <div class="textBG">
+                        <div class="ptx" lang="zh-CN">
+                            {{ desc.content|safe }}
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="hiddable" id="vj_input" style="display: block; ">
+                    <p class="pst">
+                        输入
+                    </p>
+                    <div class="textBG">
+                        <div class="ptx" lang="zh-CN">
+                            {{ desc.input|safe }}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hiddable" id="vj_output" style="display: block; ">
+                    <p class="pst">
+                        输出
+                    </p>
+                    <div class="textBG">
+                        <div class="ptx" lang="zh-CN">
+                            {{ desc.output|safe }}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hiddable" id="vj_sampleInput" style="display: block; ">
+                    <p class="pst">
+                        样例输入
+                    </p>
+                    <div class="textBG">
+                        <pre class="sio">{{ desc.sample_input }}</pre>
+                    </div>
+                </div>
+                
+                <div class="hiddable" id="vj_sampleOutput" style="display: block; ">
+                    <p class="pst">
+                        样例输出
+                    </p>
+                    <div class="textBG">
+                        <pre class="sio">{{ desc.sample_input }}</pre>
+                    </div>
+                </div>
+                
+                <div class="hiddable" id="vj_hint" style="display: block; ">
+                    <p class="pst">
+                        提示
+                    </p>
+                    <div class="textBG">
+                        <div class="ptx" lang="zh-CN">
+                            {{ desc.hint|safe }}
+                        </div>
+                    </div>
+                </div>
+
+                <p class="pst">来源</p>
+                <div class="textBG">
+                    <div class="ptx" lang="zh-CN">
+                        {{ desc.source|safe }}
+                    </div>
+                </div>
+
+            {% endwith %}
+            </div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}编辑题目数据{% endblock %}
+{% block content %}
+            <div>
+                    <div>
+                        判定流程: {% for flow_str in problem.get_judge_flow %}{{ flow_str }}，{% endfor %}
+                    </div>
+               <form method="post" action = "" name = "problem_config_edit">
+               {% csrf_token%}
+               <div>
+                    <h2>Descriptions</h2>
+                    
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>编号</td>
+                            <td>标题</td>
+                        </tr>
+                    {% for desc in meta_descs %}
+                        <tr>
+                            <td><input type="radio" name="desc_id" value="{{ desc.id }}" {% ifequal desc.id desc_id %}checked="checked" {% endifequal %}/> </td>
+                            <td>{{ desc.id }}</td>
+                            <td><a href="">{{ desc.title }}</a></td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+               </div>
+               
+               <div>
+                    <h2>Input Output Data</h2>
+                    
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>编号</td>
+                            <td>标题</td>
+                        </tr>
+                    {% for data in meta_io_datas %}
+                        <tr>
+                            <td><input type="checkbox" name="io_datas" value="{{ data.id }}" {% if data.id in io_datas_id %}checked="checked" {% endif %}/> </td>
+                            <td>{{ data.id }}</td>
+                            <td><a href="">{{ data.name }}</a></td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+               </div>
+               
+                {% for template_name in problem.get_edit_config_list_template %}
+                    {% include template_name %}
+                {% endfor %}
+                    <input name = "submit" value = "提交" type = "submit" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input name="reset" value="清空" type="reset">
+                </form>
+            </div>
+{% endblock %}

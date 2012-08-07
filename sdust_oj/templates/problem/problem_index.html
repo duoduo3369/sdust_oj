@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+            {% block title %}
+                题目管理
+            {% endblock %}
+
+            {% block content %}
+                <ul>
+                    <li><a href="{% url meta_list 1 %}">题元列表</a></li>
+                    <li><a href="{% url problem_meta_add %}">添加题元</a></li>
+                    <li><a href="{% url problem_list_admin 1 %}">题目列表</a></li>               
+                </ul>
+            {% endblock %}

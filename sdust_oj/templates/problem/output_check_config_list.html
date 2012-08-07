@@ -1,0 +1,21 @@
+               <div>
+                    <h2>Output Check Config List</h2>
+                    <a href="{% url output_check_config_add meta.id %}">Add</a>
+
+                    <table>
+                        <tr>
+                            <td>编号</td>
+                            <td>检查方法</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    {% for output_c in output_check_configs %}
+                        <tr>
+                            <td>{{ output_c.id }}</td>
+                            <td>{{ output_c.check_method }}</td>
+                            <td><a href="{% url output_check_config_edit meta.id output_c.id %}">编辑</a></td>
+                            <td><a href="{% url output_check_config_delete meta.id output_c.id %}">删除</a></td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+               </div>

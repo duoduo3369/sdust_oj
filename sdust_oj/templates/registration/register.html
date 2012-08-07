@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+            {% block title %}
+                用户注册
+            {% endblock %}
+
+            {% block content %}
+            <div>
+                <center>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="Create the account">
+                    </form>
+                </center>
+
+            </div>
+            {% endblock %}
