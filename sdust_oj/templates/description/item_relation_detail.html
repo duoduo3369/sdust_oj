@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}{{ item_relation_object.id }} - {{ item_relation_object.title }}{% endblock %}
+{% block content %}
+
+<div>
+	<div>
+		<h1>组合: {{ item_relation_object.title }}</h1>
+	</div>
+	<div>
+		<a href="{% url description_meta_list 1%}">元描述列表</a>
+		<a href="{% url item_relation_list 1%}">组合列表</a>
+	</div>
+	<div>
+
+		<table>
+			<tr>
+				<td>编号</td>
+				<td>标题</td>
+				<td>组合中的个数</td>
+				<td>显示顺序</td>
+			</tr>
+			{% for object in detail_list %}
+			<tr>
+				<td>{{ object.item_id }}</td>
+				<td>{{ object.item_title }}</td>
+				<td>{{ object.combination_number }}</td>
+				<td>{{ object.show_order }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+
+</div>
+
+{% endblock %}
+

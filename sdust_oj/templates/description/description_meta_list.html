@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+元描述列表
+{% endblock %}
+
+{% block content %}
+<div>
+	<div>
+		<h1>元描述列表</h1>
+	</div>
+	
+	<a href="{% url description_meta_add %}">添加元描述</a> 
+	
+	<table>
+		<tr>
+			<td>编号</td>
+			<td>标题</td>
+			
+		</tr>
+		{% for object in objects.object_list %}
+		<tr>
+			<td>{{ object.id }}</td>			
+			<td><a href="{% url description_meta_detail object.id %}">{{ object.title }}</a></td>
+			
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

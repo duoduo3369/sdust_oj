@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}{{ meta_type.id }} - {{ meta_type.title }}{% endblock %}
+{% block content %}
+
+<div>
+	<div>
+		<h1>项元: {{ meta_type.title }}</h1>
+	</div>
+	<div>
+		<a href="{% url item_meta_add meta_type.id%}">添加项元</a>
+		<a href="{% url item_meta_type_list 1%}">查看项元类型列表</a>
+	</div>
+	<div>
+
+		<table>
+			<tr>
+				<td>编号</td>
+				<td>标题</td>
+				<td></td>
+				<td></td>
+			</tr>
+			{% for meta in metas %}
+			<tr>
+				<td>{{ meta.id }}</td>
+				<td><a href="{% url item_meta_detail meta.id %}">{{ meta.title }}</a></td>
+
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+
+</div>
+
+{% endblock %}
+

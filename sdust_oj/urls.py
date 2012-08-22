@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^users/', include('sdust_oj.users.urls')),
     url(r'^test/', test_view, name="test_view"),
     url(r'^admin/', include('sdust_oj.admin.urls')),
+    url(r'^description/', include('sdust_oj.description.urls')),
 )
 
 

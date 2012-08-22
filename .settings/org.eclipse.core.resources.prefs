@@ -1,6 +1,7 @@
-#Tue Jun 12 20:26:31 CST 2012
 eclipse.preferences.version=1
 encoding//sdust_oj/constant.py=utf8
+encoding//sdust_oj/description/forms.py=UTF8
+encoding//sdust_oj/description/widgets.py=UTF8
 encoding//sdust_oj/judgeClient/compile.py=utf8
 encoding//sdust_oj/judgeClient/output_check.py=utf8
 encoding//sdust_oj/judgeClient/run.py=utf8
@@ -8,6 +9,7 @@ encoding//sdust_oj/judgeServer/dispatcher.py=utf8
 encoding//sdust_oj/judgeServer/listener.py=utf8
 encoding//sdust_oj/judgeServer/rpcserver.py=utf8
 encoding//sdust_oj/models/auth.py=UTF8
+encoding//sdust_oj/models/description.py=UTF8
 encoding//sdust_oj/models/problem.py=UTF8
 encoding//sdust_oj/problem/models.py=utf8
 encoding//sdust_oj/status.py=utf8

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}
+组合列表
+{% endblock %}
+
+{% block content %}
+<div>
+	<div>
+		<h1>组合列表</h1>
+	</div>
+	<a href="{% url item_relation_add %}">添加组合</a> 
+
+	<table>
+		<tr>
+			<td>编号</td>
+			<td>标题</td>
+			
+		</tr>
+		{% for object in objects.object_list %}
+		<tr>
+			<td>{{ object.id }}</td>			
+			<td><a href="{% url item_relation_detail object.id %}">{{ object.title }}</a></td>
+			
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

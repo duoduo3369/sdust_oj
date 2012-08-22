@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+题目管理
+{% endblock %}
+
+{% block content %}
+<div>
+	<a href="{% url item_add %}">添加项元</a> 
+
+	<table>
+		<tr>
+			<td>编号</td>
+			<td>标题</td>
+			<td></td>
+			<td></td>
+		</tr>
+		{% for object in objects.object_list %}
+		<tr>
+			<td>{{ object.id }}</td>			
+			<td>{{ object.title }}</td>
+			
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}
