@@ -4,11 +4,10 @@
 
 <div>
 	<div>
-		<h1>组合: {{ item_relation_object.title }}</h1>
+		<h1><a href="{% url item_relation_list 1%}">组合</a>: {{ item_relation_object.title }}</h1>
 	</div>
 	<div>
 		<a href="{% url description_meta_list 1%}">元描述列表</a>
-		<a href="{% url item_relation_list 1%}">组合列表</a>
 	</div>
 	<div>
 

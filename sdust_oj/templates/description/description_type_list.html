@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}元描述{{ description_meta_object.id }} - {{ description_meta_object.title }}所属描述类型{% endblock %}
+
+{% block content %}
+<div>
+	<div>
+		<h2>描述类型列表</h2>
+		<h3>所属元描述：<a href="{% url description_meta_detail description_meta_object.id%}">{{ description_meta_object.title }}</a></h3>
+		
+	</div>
+	
+
+	
+	<table>
+		<tr>
+			<td>编号</td>
+			<td>描述类型</td>
+			
+		</tr>
+		{% for object in objects.object_list %}
+		<tr>
+			<td>{{ object.id }}</td>			
+			<td><a href="{% url description_type_detail object.id%}">{{ object.title }}</a></td>
+			
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

@@ -53,36 +53,63 @@ class DescriptionMeta(object):
 class DescriptionMetaItemRelationCombination(object):
 
     def __init__(self, description_meta_id=None,item_relation_id=None, 
-                 multi_number=0,):
+                 multi_number=None,):
         self.description_meta_id = description_meta_id
         self.item_relation_id = item_relation_id        
-        self.multi_number = multi_number
 
 class DescriptionMetaItemRelationCombinationFormInfo(object):
 
-    def __init__(self, item_relation_id=None, item_relation_title='',):
+    def __init__(self, item_relation_id=None, item_relation_title='',relation_items_number=None):
         self.item_relation_id = item_relation_id
         self.item_relation_title = item_relation_title
         self.title_field_name = str(item_relation_id) + '_' + item_relation_title
+        self.relation_items_number = relation_items_number
         
-class DescriptionMetaItemRelationViewDetail(object):
+class DescriptionTypeItemRelationViewDetail(object):
     
-    def __init__(self,item_relation_id=None,item_relation_title='',multi_number=0, ):
+    def __init__(self,item_relation_id=None,item_relation_title='',multi_number=None, show_order=None):
 
         self.item_relation_id = item_relation_id
         self.item_relation_title = item_relation_title
         self.multi_number = multi_number
+        self.show_order = show_order
         
 class DescriptionType(object):
     
-    def __init__(self,dscription_meta_id=None,title=""):
-        self.dscription_meta_id = dscription_meta_id
+    def __init__(self,description_meta_id=None,title=""):
+        self.description_meta_id = description_meta_id
         self.title = title 
 
 class DescriptionTypeItemRelationCombination(object):
 
-    def __init__(self, description_meta_id=None,item_relation_id=None, 
-                 multi_number=0,):
-        self.description_meta_id = description_meta_id
-        self.item_relation_id = item_relation_id        
+    def __init__(self, description_type_id=None,item_relation_id=None, 
+                 relation_items_number=None,
+                 multi_number=None,show_order=None):
+        self.description_type_id = description_type_id
+        self.item_relation_id = item_relation_id    
+        self.relation_items_number = relation_items_number    
         self.multi_number = multi_number
+        self.show_order = show_order
+
+class DescriptionDetail(object):
+    def __init__(self, description_type_id=None,description_id=None,
+                 item_relation_id=None, items_id=None,
+                 relation_show_order=None,show_order=None,content=None):
+        self.description_type_id = description_type_id
+        self.description_id = description_id
+        self.item_relation_id = item_relation_id
+        self.items_id = items_id
+        self.relation_show_order = relation_show_order
+        self.show_order = show_order
+        self.content = content
+  
+class DescriptionDetailFormInfo(ItemRelationCombinationFormInfo):
+    
+    def __init__(self,item_id=None,item_title='',relation_title='',relation_show_order=None,item_show_order=None):
+        self.relation_show_order = relation_show_order
+        self.item_show_order = item_show_order
+        self.item_id = item_id
+        self.relation_title = relation_title
+        self.item_title = item_title
+        self.title_field_name = str(relation_show_order) + '_' + str(item_show_order) + '_' + str(item_id) + '_' + item_title
+        

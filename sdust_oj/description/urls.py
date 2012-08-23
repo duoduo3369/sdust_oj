@@ -4,7 +4,11 @@ from sdust_oj.description.models import (Item,ItemRelation,
 from sdust_oj.description.views import (show_list,item_add,item_relation_add,
                                         item_relation_combine_add,item_relation_detail,
                                         description_meta_add,description_meta_detail,
-                                        description_meta_item_relation_combine_add)
+                                        description_meta_item_relation_combine_add,
+                                        description_type_add,description_type_list,
+                                        description_type_item_relation_combine_add,
+                                        description_type_detail,description_detail_add
+                                        )
 
 urlpatterns = patterns('',
     url(r'^item_list/(?P<page>\d{,10})/$',
@@ -32,5 +36,13 @@ urlpatterns = patterns('',
     url(r'^description_meta_item_relation_combine_add/(?P<description_meta_id>\d{,10})/$', 
         description_meta_item_relation_combine_add,name="description_meta_item_relation_combine_add"),
     url(r'^description_meta_detail/(?P<description_meta_id>\d{,10})/$', description_meta_detail,name="description_meta_detail"),
+
+    url(r'^description_type_add/(?P<description_meta_id>\d{,10})/$', description_type_add,name="description_type_add"),
+    url(r'^description_type_item_relation_combine_add/(?P<description_type_id>\d{,10})/$', 
+        description_type_item_relation_combine_add,name="description_type_item_relation_combine_add"),
+    url(r'^description_type_list/(?P<description_meta_id>\d{,10})/(?P<page>\d{,10})/$', description_type_list,name="description_type_list"),
+    url(r'^description_type_detail/(?P<description_type_id>\d{,10})/$', description_type_detail,name="description_type_detail"),
+
+    url(r'^description_detail_add/(?P<description_type_id>\d{,10})/(?P<description_id>\d{,10})/$', description_detail_add,name="description_detail_add"),
 
 )

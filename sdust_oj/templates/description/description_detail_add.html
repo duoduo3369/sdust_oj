@@ -1,20 +1,17 @@
 {% extends "base.html" %}
-{% block title %}{{ description_meta_object.id }} - {{ description_meta_object.title }}{% endblock %}
+
+{% block title %}{% endblock %}
 
 {% block content %}
 
 <div style="width:800px;MARGIN-RIGHT:auto;MARGIN-LEFT:auto;">
-	<h2>元描述：{{ description_meta_object.title }}</h2>
+	<div>
+		<h2></h2>
+	</div>
 	<form id="form" name="submit" action="" method="POST">
 		{% csrf_token%}
-
-		<div>
-			可选的组合			
-		</div>
-		<div>
-			{{form.item_relations}}
-		</div>
-
+		
+			{{form}} 
 		<br>
 		<input style="float:left" class="bnt1" type="submit" id="submit" value="提交">
 		<input style="margin-left:20px;float:left" class="bnt1" type="button" value="返回" onclick="history.go(-1)">

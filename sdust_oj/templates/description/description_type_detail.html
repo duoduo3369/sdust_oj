@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}描述类型：{{ description_type_object.id }} - {{ description_type_object.title }} 所拥有的全部组合{% endblock %}
+{% block content %}
+
+<div>
+	<div>
+		<h2><a href="{% url description_type_list description_meta_object.id 1%}">描述类型</a>: {{ description_type_object.title }}</h2>
+		<div>
+			所属元描述:<a href="{% url description_meta_detail description_meta_object.id%}">{{ description_meta_object.title }}</a>
+		</div>
+		<h3>描述类型所拥有的全部组合</h3>
+	</div>
+
+	<div>
+
+		<table>
+			<tr>
+				<td class="number">编号</td>
+				<td class="combination">组合</td>
+				<td class="multi_number_td">多选个数</td>
+				<td class='show_number_td'>显示顺序</td>
+			</tr>
+			{% for object in detail_list %}
+			<tr>
+				<td class="number">{{ object.item_relation_id }}</td>
+				<td class="combination"><a href="{% url item_relation_detail object.item_relation_id%}">{{ object.item_relation_title }}</a></td>
+				<td class="multi_number_td">{{ object.multi_number }}</td>
+				<td class='show_number_td'>{{ object.show_order }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+
+</div>
+
+{% endblock %}
+
